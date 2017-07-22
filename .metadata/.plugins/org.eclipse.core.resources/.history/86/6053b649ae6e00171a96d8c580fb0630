@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.luuuzi.mobilesafe"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <!--
+    package：项目的包名 
+    versionCode：本地应用版本号，如果服务器的是2 就需要更新
+    versionName="1.0"：版本名称 
+    eg：1.0.1 最后一位表示修复bug，
+           倒数第二位：更新部分功能，
+           第一位代表项目的重大更新(代码重构，大部分功能添加，界面整体修改)
+    -->
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+    <!-- minsdkVersion：最小版本sdk
+    targetsdkVersion：编译版本的sdk ，
+    如果需要修改则取project.properties下；target=android-17修改数字-->
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.luuuzi.mobilesafe.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

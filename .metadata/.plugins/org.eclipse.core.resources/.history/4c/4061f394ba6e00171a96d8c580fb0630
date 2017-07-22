@@ -1,0 +1,35 @@
+package com.luuuzi.mobilesafe.activity;
+
+import com.luuuzi.mobilesafe.R;
+import com.luuuzi.mobilesafe.R.layout;
+import com.luuuzi.mobilesafe.R.menu;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.view.Menu;
+
+public class SplashActivity extends Activity {
+	private Context	mContext;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash);
+        mContext=this;
+        new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				try{
+				Thread.sleep(3000);
+				new Intent();
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			}
+		}).start();
+    }
+}
