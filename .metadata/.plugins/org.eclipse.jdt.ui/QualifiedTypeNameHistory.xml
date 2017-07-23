@@ -10,4 +10,6 @@
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="com.luuuzi.mobilesafe.activity.SplashActivity"/>
 <fullyQualifiedTypeName name="com.luuuzi.mobilesafe.activity.MainActivity"/>
+<fullyQualifiedTypeName name="android.view.Window"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
 </qualifiedTypeNameHistroy>

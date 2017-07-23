@@ -1,0 +1,83 @@
+package com.luuuzi.mobilesafe.activity;
+
+import com.luuuzi.mobilesafe.R;
+import com.luuuzi.mobilesafe.R.layout;
+import com.luuuzi.mobilesafe.R.menu;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.view.Menu;
+import android.view.View;
+import android.view.Window;
+import android.widget.TextView;
+
+public class SplashActivity extends Activity {
+	private Context mContext;
+	private TextView tv_version_name;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_splash);
+		mContext = this;
+		//初始化ui
+		initUi();
+		//获取数据的方法
+		initdata();
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				try {
+					Thread.sleep(3000);
+					Intent intent = new Intent();
+					intent.setClass(SplashActivity.this, MainActivity.class);
+					startActivity(intent);
+					finish();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
+		}).start();
+	}
+
+	/**
+	 * 获取数据
+	 */
+	private void initdata() {
+		//1.应用版本名称
+		getVersionName();
+	}
+
+	/**
+	 * 获取版本名称，从清单文件中拿
+	 */
+	private void getVersionName() {
+		//1.包管理者对象packgeManager
+		PackageManager packageManager = getPackageManager();
+		//2.从包的管理者对象中获得指定包名的具体信息
+		//参数1包名(packageName)：包名，参数2标记(flags):Activity 权限等 0代表获取基本信息
+		try {
+			PackageInfo packageInfo = packageManager.getPackageInfo(mContext.getPackageName(),0 );
+			String versionName = packageInfo.versionName;
+		} catch (NameNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	/**
+	 * 初始化ui
+	 */
+	private void initUi() {
+		tv_version_name = (TextView) findViewById(R.id.tv_version_name);
+		
+	}
+}
