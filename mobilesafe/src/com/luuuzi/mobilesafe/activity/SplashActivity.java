@@ -17,9 +17,12 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.luuuzi.mobilesafe.R;
 import com.luuuzi.mobilesafe.R.layout;
 import com.luuuzi.mobilesafe.R.menu;
+import com.luuuzi.mobilesafe.util.ConstantUtil;
 import com.luuuzi.mobilesafe.util.ToastUtil;
+import com.luuuzi.mobilesafe.util.spUtil;
 import com.luuuzi.mobilesafe.util.streamUtli;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -40,6 +43,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class SplashActivity extends Activity {
@@ -86,6 +92,17 @@ public class SplashActivity extends Activity {
 				builder.setIcon(R.drawable.ic_launcher);
 				builder.setTitle("版本更新提示");
 				builder.setMessage(mVersionDes_st);
+				//点击返回按钮时执行此方法
+				builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
+					
+					@Override
+					public void onCancel(DialogInterface dialog) {
+						enterHome();
+						//关闭对话框
+						dialog.dismiss();
+						
+					}
+				});
 				builder.setNegativeButton("稍后更新",
 						new DialogInterface.OnClickListener() {
 
@@ -112,6 +129,7 @@ public class SplashActivity extends Activity {
 							}
 
 						});
+				
 				builder.show();
 
 				break;
@@ -137,6 +155,8 @@ public class SplashActivity extends Activity {
 		};
 	};
 
+	private RelativeLayout mRelativeLayout;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -146,7 +166,20 @@ public class SplashActivity extends Activity {
 		initUi();
 		// 获取数据的方法
 		initdata();
+		//初始化动画，加载Splash界面
+		initAnimation();
 
+	}
+
+	/**
+	 * 让Splash界面实现动画效果
+	 */
+	private void initAnimation() {
+		AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
+		alphaAnimation.setDuration(3000);
+		mRelativeLayout.startAnimation(alphaAnimation);
+		
+		
 	}
 
 	/**
@@ -173,6 +206,14 @@ public class SplashActivity extends Activity {
 					//下载成功
 					Log.i(tag, "下载成功");
 					File file = arg0.result;
+					/**
+					 * 开始安装
+					 */
+					//安装应用的界面都是一样的，因为是系统的界面，去查看系统安装界面的源码，apk
+					//通过隐式意图开启系统安装应用
+					installerApk(file);
+					
+					
 					
 				}
 				//失败时回调
@@ -203,6 +244,38 @@ public class SplashActivity extends Activity {
 		
 	}
 
+	
+	/**
+	 * 安装apk
+	 * 通过隐式意图开启系统的安装apk的应用程序安装(安装应用的界面都是一样的，因为是系统的界面，去查看系统安装界面的源码，apk)
+	 * 设置隐式意图对象的属性和系统的安装apk应用相匹配
+	 * @param file 要安装的apk文件
+	 */
+	protected void installerApk(File file) {
+		
+		Intent intent = new Intent();
+		//设置action
+		intent.setAction("android.intent.action.VIEW");
+		//添加category() 种类
+		intent.addCategory("android.intent.category.DEFAULT");
+		//设置数据源
+		intent.setData(Uri.fromFile(file));
+		//设置类型
+		intent.setType("application/vnd.android.package-archive");
+		//开启一个Activity并同时添加请求码
+		startActivityForResult(intent, 0);
+	}
+	/**
+	 * 安装apk的系统应用程序的Dialog也是要在一个依赖一个Activity上的，
+	 * 当点击取消安装时，就会把所依赖的Activity关闭，然后返回到SplashActivity 在执行此方法跳转到mainActivity
+	 * 
+	开启一个Activity后返回结果调用的方法
+	 */
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		enterHome();
+		super.onActivityResult(requestCode, resultCode, data);
+	}
 	/**
 	 * 进入应用的主界面
 	 */
@@ -226,7 +299,19 @@ public class SplashActivity extends Activity {
 		mVersionCode = getVersionCode();
 		// 2.2获取服务器应用的版本号(客户端发请求，服务端做响应(json,xml))
 		// http://www.oxx.com/update74.com.json?key=value 返回200则请求成功，流的方式将数据读取出来
-		checkVersion();
+		//获取上次用户设置的提示更新操作
+		if(spUtil.getBooean(mContext, ConstantUtil.CONTANT_UPDATE, false)){
+			//自动更新
+			checkVersion();
+		}else{
+			//不检测更新，直接跳转到主界面
+			//传递参数发送后延时执行(延时发送消息)
+			//mHandler.sendMessageDelayed(msg, delayMillis);
+			//发送状态码，延时执行
+			//参数1(what):状态码，int类型
+			//参数2(delayMillis):延时时间，ms
+			mHandler.sendEmptyMessageDelayed(ENTER_HOME, 4000);
+		}
 	}
 
 	/**
@@ -247,7 +332,7 @@ public class SplashActivity extends Activity {
 				try {
 					// 1.封装URL地址
 					URL url;
-					url = new URL("http://192.168.5.254:8090/update.json");
+					url = new URL("http://192.168.5.58:8090/update.json");
 					// 2.开启一个链接
 					HttpURLConnection httpurlconnection = (HttpURLConnection) url
 							.openConnection();
@@ -384,6 +469,7 @@ public class SplashActivity extends Activity {
 	 */
 	private void initUi() {
 		tv_version_name = (TextView) findViewById(R.id.tv_version_name);
+		mRelativeLayout = (RelativeLayout) findViewById(R.id.rl_root);
 
 	}
 }

@@ -3,6 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    <TextView 
+        android:text="功能列表"
+        style="@style/TitleHome"
+        
+        />
+   <!--  <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0哥不管什么时候都那么认真。所以他没有很张扬却依然有那么多铁粉。再说这游戏，小学生不懂事开g能理解，一些成年人也开g"
+        android:padding="5dp"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        /> -->
+    <com.luuuzi.mobilesafe.view.FocusTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0哥不管什么时候都那么认真。所以他没有很张扬却依然有那么多铁粉。再说这游戏，小学生不懂事开g能理解，一些成年人也开g"
+        android:padding="5dp"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"/>
+    <!-- android:numColumns="3"指定列数
+    	 android:verticalSpacing="10dp"指定内部条目的列间距
+    	   -->
+    <GridView 
+        android:id="@+id/gv_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="3"
+        android:verticalSpacing="10dp"></GridView>
     
-
 </LinearLayout>

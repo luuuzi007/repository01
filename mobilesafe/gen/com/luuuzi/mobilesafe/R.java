@@ -9,6 +9,30 @@ package com.luuuzi.mobilesafe;
 
 public final class R {
     public static final class attr {
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int desoff=0x7f010001;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int deson=0x7f010002;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int destitle=0x7f010000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -34,13 +58,24 @@ public final class R {
         public static final int launcher_bg=0x7f02000a;
     }
     public static final class id {
-        public static final int action_settings=0x7f080002;
-        public static final int sb_version=0x7f080001;
-        public static final int tv_version_name=0x7f080000;
+        public static final int action_settings=0x7f08000a;
+        public static final int cb_setting=0x7f080009;
+        public static final int gv_home=0x7f080000;
+        public static final int iv_home=0x7f080005;
+        public static final int rl_root=0x7f080002;
+        public static final int sb_version=0x7f080004;
+        public static final int siv_update=0x7f080001;
+        public static final int tv_home=0x7f080006;
+        public static final int tv_settingHome=0x7f080007;
+        public static final int tv_updateSetting=0x7f080008;
+        public static final int tv_version_name=0x7f080003;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int activity_splash=0x7f030001;
+        public static final int activity_setting=0x7f030001;
+        public static final int activity_splash=0x7f030002;
+        public static final int gridview_item=0x7f030003;
+        public static final int setting_item_view=0x7f030004;
     }
     public static final class menu {
         public static final int main=0x7f070000;
@@ -77,5 +112,76 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
+        /**  功能列表空间style的设置
+    	 android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:background="#ff00ff00" 
+ All customizations that are NOT specific to a particular API-level can go here. 
+         */
+        public static final int TitleHome=0x7f060002;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a com_luuuzi_mobilesafe_view_SettingItemVeiw.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #com_luuuzi_mobilesafe_view_SettingItemVeiw_desoff com.luuuzi.mobilesafe:desoff}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_luuuzi_mobilesafe_view_SettingItemVeiw_deson com.luuuzi.mobilesafe:deson}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_luuuzi_mobilesafe_view_SettingItemVeiw_destitle com.luuuzi.mobilesafe:destitle}</code></td><td></td></tr>
+           </table>
+           @see #com_luuuzi_mobilesafe_view_SettingItemVeiw_desoff
+           @see #com_luuuzi_mobilesafe_view_SettingItemVeiw_deson
+           @see #com_luuuzi_mobilesafe_view_SettingItemVeiw_destitle
+         */
+        public static final int[] com_luuuzi_mobilesafe_view_SettingItemVeiw = {
+            0x7f010000, 0x7f010001, 0x7f010002
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.luuuzi.mobilesafe.R.attr#desoff}
+          attribute's value can be found in the {@link #com_luuuzi_mobilesafe_view_SettingItemVeiw} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:desoff
+        */
+        public static final int com_luuuzi_mobilesafe_view_SettingItemVeiw_desoff = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.luuuzi.mobilesafe.R.attr#deson}
+          attribute's value can be found in the {@link #com_luuuzi_mobilesafe_view_SettingItemVeiw} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:deson
+        */
+        public static final int com_luuuzi_mobilesafe_view_SettingItemVeiw_deson = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.luuuzi.mobilesafe.R.attr#destitle}
+          attribute's value can be found in the {@link #com_luuuzi_mobilesafe_view_SettingItemVeiw} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:destitle
+        */
+        public static final int com_luuuzi_mobilesafe_view_SettingItemVeiw_destitle = 0;
+    };
 }
