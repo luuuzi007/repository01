@@ -45,37 +45,67 @@ containing a value of this type.
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int home_apps=0x7f020000;
-        public static final int home_callmsgsafe=0x7f020001;
-        public static final int home_netmanager=0x7f020002;
-        public static final int home_safe=0x7f020003;
-        public static final int home_settings=0x7f020004;
-        public static final int home_sysoptimize=0x7f020005;
-        public static final int home_taskmanager=0x7f020006;
-        public static final int home_tools=0x7f020007;
-        public static final int home_trojan=0x7f020008;
-        public static final int ic_launcher=0x7f020009;
-        public static final int launcher_bg=0x7f02000a;
+        public static final int bind=0x7f020000;
+        public static final int btn_green_normal=0x7f020001;
+        public static final int btn_green_pressed=0x7f020002;
+        public static final int function_greenbutton_normal=0x7f020003;
+        public static final int function_greenbutton_pressed=0x7f020004;
+        public static final int home_apps=0x7f020005;
+        public static final int home_callmsgsafe=0x7f020006;
+        public static final int home_netmanager=0x7f020007;
+        public static final int home_safe=0x7f020008;
+        public static final int home_settings=0x7f020009;
+        public static final int home_sysoptimize=0x7f02000a;
+        public static final int home_taskmanager=0x7f02000b;
+        public static final int home_tools=0x7f02000c;
+        public static final int home_trojan=0x7f02000d;
+        public static final int ic_launcher=0x7f02000e;
+        public static final int launcher_bg=0x7f02000f;
+        public static final int listview_divider=0x7f020010;
+        public static final int lock=0x7f020011;
+        public static final int next=0x7f020012;
+        public static final int page_selector=0x7f020013;
+        public static final int phone=0x7f020014;
+        public static final int previous=0x7f020015;
+        public static final int setup1=0x7f020016;
+        public static final int setup3_selector=0x7f020017;
+        public static final int unlock=0x7f020018;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000a;
-        public static final int cb_setting=0x7f080009;
+        public static final int action_settings=0x7f080013;
+        public static final int bt_cancel=0x7f08000d;
+        public static final int bt_cancel_password=0x7f080009;
+        public static final int bt_cofirm_password=0x7f080008;
+        public static final int bt_nextpage1=0x7f080002;
+        public static final int bt_submit=0x7f08000c;
+        public static final int cb_setting=0x7f080012;
+        public static final int ed_input_password=0x7f080007;
+        public static final int et_inputPassword=0x7f08000a;
+        public static final int et_submitPassword=0x7f08000b;
         public static final int gv_home=0x7f080000;
-        public static final int iv_home=0x7f080005;
-        public static final int rl_root=0x7f080002;
-        public static final int sb_version=0x7f080004;
+        public static final int iv_home=0x7f08000e;
+        public static final int rl_root=0x7f080004;
+        public static final int sb_version=0x7f080006;
+        public static final int siv_bound=0x7f080003;
         public static final int siv_update=0x7f080001;
-        public static final int tv_home=0x7f080006;
-        public static final int tv_settingHome=0x7f080007;
-        public static final int tv_updateSetting=0x7f080008;
-        public static final int tv_version_name=0x7f080003;
+        public static final int tv_home=0x7f08000f;
+        public static final int tv_settingHome=0x7f080010;
+        public static final int tv_updateSetting=0x7f080011;
+        public static final int tv_version_name=0x7f080005;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_setting=0x7f030001;
-        public static final int activity_splash=0x7f030002;
-        public static final int gridview_item=0x7f030003;
-        public static final int setting_item_view=0x7f030004;
+        public static final int activity_setup1=0x7f030002;
+        public static final int activity_setup2=0x7f030003;
+        public static final int activity_setup3=0x7f030004;
+        public static final int activity_setup4=0x7f030005;
+        public static final int activity_setupover_over=0x7f030006;
+        public static final int activity_splash=0x7f030007;
+        public static final int dialog_confirm_password=0x7f030008;
+        public static final int dialog_set_password=0x7f030009;
+        public static final int gridview_item=0x7f03000a;
+        public static final int setting_item_view=0x7f03000b;
     }
     public static final class menu {
         public static final int main=0x7f070000;
@@ -89,11 +119,13 @@ containing a value of this type.
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
         
 
         Base application theme for API 11+. This theme completely replaces
@@ -112,16 +144,33 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
-        /**  功能列表空间style的设置
+        /** 
+         功能列表空间style的设置
     	 android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:gravity="center_horizontal"
         android:padding="10dp"
-        android:background="#ff00ff00" 
+        android:background="#ff00ff00"
+    
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int TitleHome=0x7f060002;
+        /** 
+        点击下一页按钮  
+    	<Button 
+            android:id="@+id/bt_setup1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="下一页"
+            android:background="@drawable/page_selector"
+            android:drawableRight="@drawable/next"/>
+    
+         */
+        public static final int nextpageBt=0x7f060003;
+        public static final int previouspateBt=0x7f060004;
     }
     public static final class styleable {
         /** Attributes that can be used with a com_luuuzi_mobilesafe_view_SettingItemVeiw.

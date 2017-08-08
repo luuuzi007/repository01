@@ -332,7 +332,7 @@ public class SplashActivity extends Activity {
 				try {
 					// 1.封装URL地址
 					URL url;
-					url = new URL("http://192.168.5.58:8090/update.json");
+					url = new URL("http://192.168.5.166:8090/update.json");
 					// 2.开启一个链接
 					HttpURLConnection httpurlconnection = (HttpURLConnection) url
 							.openConnection();

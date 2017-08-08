@@ -39,4 +39,46 @@ public class spUtil {
 		boolean boolean1 = sharedPreferences.getBoolean(key, defaultBoolean);
 		return boolean1;
 	}
+	
+	/**
+	 * 获取密码：通过key去拿到用户名密码，没有拿到则默认为null
+	 * @param context 	上下文
+	 * @param key	密码的键
+	 * @param defaultPasswrod	用户没有设置密码时的默认密码
+	 * @return
+	 */
+	public static String getString(Context context,String key,String defaultPasswrod){
+		if(sharedPreferences==null){
+			context.getSharedPreferences("config", Context.MODE_PRIVATE);
+		}
+		String str = sharedPreferences.getString(key, defaultPasswrod);
+		return str;
+	}
+	/**保存密码:当用户第一次设置密码时将其保存到私有目录下
+	 * @param context	上下文
+	 * @param passwrod	用户输入密码
+	 */
+	public static void putString(Context context,String key,String value){
+		if(sharedPreferences==null){
+			context.getSharedPreferences("config", Context.MODE_PRIVATE);
+		}
+		//sharedPreferences.edit().putString(ConstantUtil.MOBILESAFE_PASSWORD, passwrod);
+		Editor edit = sharedPreferences.edit();
+		edit.putString(key, value);
+		edit.commit();
+		
+	}
+	/**
+	 * 删除节点
+	 * @param context	上下文
+	 * @param key	键
+	 */
+	public static void removeNode(Context context,String key){
+		if(sharedPreferences==null){
+			context.getSharedPreferences("config", Context.MODE_PRIVATE);
+		}
+		Editor edit = sharedPreferences.edit();
+		edit.remove(key);
+		edit.commit();
+	}
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.luuuzi.mobilesafe"
-    android:versionCode="1"
+    android:versionCode="2"
     android:versionName="1.0" >
 
     <!--
@@ -58,7 +58,19 @@
         </activity>
         <activity android:name="com.luuuzi.mobilesafe.activity.MainActivity" >
         </activity>
+       <!-- 设置Activity -->
         <activity android:name="com.luuuzi.mobilesafe.activity.SettingActivity"></activity>
-    </application>
+   		<!-- 设置界面1Activity -->
+   		<activity android:name="com.luuuzi.mobilesafe.activity.Setup1Activity"></activity>
+     	<!-- 设置界面2Activity -->
+     	<activity android:name="com.luuuzi.mobilesafe.activity.Setup2Activity"></activity>
+     	<!-- 设置界面3Activity -->
+     	<activity android:name="com.luuuzi.mobilesafe.activity.Setup3Activity"></activity>
+     	<!-- 设置界面4Activity -->
+     	<activity android:name="com.luuuzi.mobilesafe.activity.Setup4Activity"></activity>
+     	<!-- 设置完成Activity -->
+     	<activity android:name="com.luuuzi.mobilesafe.activity.SetupOverActivity"></activity>
+     
+     </application>
 
 </manifest>

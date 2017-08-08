@@ -78,9 +78,15 @@ public class SettingItemVeiw extends RelativeLayout {
 	public boolean isCheck(){
 		return cb_setting.isChecked();
 	}
+	
+	/**
+	 * 设置CheckBox的选中状态
+	 * @param isCheck
+	 */
 	public void setChecked(boolean isCheck){
 		cb_setting.setChecked(isCheck);
 		if(isCheck){
+			//设置TextView显示的内容
 			tv_updateSetting.setText(deson);
 		}else{
 			tv_updateSetting.setText(desoff);

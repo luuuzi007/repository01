@@ -2,13 +2,13 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
 
@@ -17,14 +17,16 @@
         <item name="android:windowNoTitle">true</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    <!-- 功能列表空间style的设置
+    <!--
+         功能列表空间style的设置
     	 android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:gravity="center_horizontal"
         android:padding="10dp"
-        android:background="#ff00ff00" -->
-    <style name="TitleHome" >
+        android:background="#ff00ff00"
+    -->
+    <style name="TitleHome">
         <item name="android:windowNoTitle">true</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -33,6 +35,36 @@
         <item name="android:padding">10dp</item>
         <item name="android:background">#ff00ff00</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <!--
+        点击下一页按钮  
+    	<Button 
+            android:id="@+id/bt_setup1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="下一页"
+            android:background="@drawable/page_selector"
+            android:drawableRight="@drawable/next"/>
+    -->
+    <style name="nextpageBt">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:text">下一页</item>
+        <item name="android:background">@drawable/page_selector</item>
+        <item name="android:drawableRight">@drawable/next</item>
+    </style>
+    <style name="previouspateBt">
+         <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:text">上一页</item>
+        <item name="android:background">@drawable/page_selector</item>
+        <item name="android:drawableLeft">@drawable/previous</item>
     </style>
 
 </resources>
